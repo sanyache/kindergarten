@@ -1,0 +1,305 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Детальніше про наш захід</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Class Details -->
+        <section class="page-event-details bg--white section-padding--lg">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-lg-9">
+        				<div class="event-content-wrapper">
+
+	        				<div class="event-section">
+	        					<div class="enent__thumb">
+									{% if event.title_image %}
+	        						<img src="{{ event.title_image_detail.url }}" alt="big images">
+									{% else %}
+									<img src="{% static 'images/event/big-img/1.jpg' %}">
+									{% endif %}
+	        						<div class="box-timer">
+										{% if event.is_active %}
+                                        <div class="countbox timer-grid">
+                                            <div
+													data-countdown="{{ event.scheduled|date:'Y/m/d H:i' }}"></div>
+                                        </div>
+										{% endif %}
+                                     </div>
+	        					</div>
+
+	        					<div class="event__inner">
+	        						<span><i class="fa fa-calendar"></i>
+										{{ event.scheduled|date:'d M Y H : i' }}</span>
+	        						<h4>{{ event.title }}</h4>
+
+	        						<h6>Місце проведення{{ event.place }}</h6>
+
+	        						<blockquote>{{ event.description }}</blockquote>
+	        					</div>
+        					</div>
+
+	        				<div class="event-section">
+	        					<div class="event__advertise">
+
+	        						<div class="addver__thumb">
+	        							<img src="{% static 'images/event/big-img/1.jpg' %}"
+											 alt="event images">
+	        						</div>
+	        					</div>
+								{% if event.content %}
+	        					<div>
+									{{ event.content|safe }}
+								</div>
+								{% endif %}
+        					</div>
+						</div>
+        		</div>
+        	</div>
+        </section>
+        <!-- End Class Details -->
+
+		        <!-- Cartbox -->
+        <div class="cartbox-wrap">
+            <div class="cartbox text-right">
+                <button class="cartbox-close"><i class="zmdi zmdi-close"></i></button>
+                <div class="cartbox__inner text-left">
+                    <div class="cartbox__items">
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/product/sm-pro/1.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">brown jacket</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$15</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                        <!-- //Cartbox Single Item -->
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/product/sm-pro/2.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">long sleeve t-shirt</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$25</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div><!-- //Cartbox Single Item -->
+                        <!-- Cartbox Single Item -->
+                        <div class="cartbox__item">
+                            <div class="cartbox__item__thumb">
+                                <a href="product-details.html">
+                                    <img src="images/product/sm-pro/3.jpg" alt="small thumbnail">
+                                </a>
+                            </div>
+                            <div class="cartbox__item__content">
+                                <h5><a href="product-details.html" class="product-name">black polo shirt</a></h5>
+                                <p>Qty: <span>01</span></p>
+                                <span class="price">$30</span>
+                            </div>
+                            <button class="cartbox__item__remove">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
+                        <!-- //Cartbox Single Item -->
+                    </div>
+                    <div class="cartbox__total">
+                        <ul>
+                            <li><span class="cartbox__total__title">Subtotal</span><span class="price">$70</span></li>
+                            <li class="shipping-charge"><span class="cartbox__total__title">Shipping Charge</span><span class="price">$05</span></li>
+                            <li class="grandtotal">Total<span class="price">$75</span></li>
+                        </ul>
+                    </div>
+                    <div class="cartbox__buttons">
+                        <a class="dcare__btn" href="cart.html"><span>View cart</span></a>
+                        <a class="dcare__btn" href="checkout.html"><span>Checkout</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //Cartbox -->
+
+
+
+
+
+	</div><!-- //Main wrapper -->
+
+{% endblock content %}
+
+    <!-- Google Map js -->
+   <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>-->
+    <!--<script>-->
+        <!--// When the window has finished loading create our google map below-->
+        <!--google.maps.event.addDomListener(window, 'load', init);-->
+ <!---->
+        <!--function init() {-->
+            <!--// Basic options for a simple Google Map-->
+            <!--// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions-->
+            <!--var mapOptions = {-->
+                <!--// How zoomed in you want the map to start at (always required)-->
+                <!--zoom: 12,-->
+
+                <!--scrollwheel: false,-->
+
+                <!--// The latitude and longitude to center the map (always required)-->
+                <!--center: new google.maps.LatLng(23.7286, 90.3854), // New York-->
+
+                <!--// How you would like to style the map. -->
+                <!--// This is where you would paste any style found on Snazzy Maps.-->
+                 <!--styles:-->
+				<!--[-->
+
+    <!--{-->
+        <!--"featureType": "administrative",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "off"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "poi",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "simplified"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "road",-->
+        <!--"elementType": "labels",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "simplified"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "water",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "simplified"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "transit",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "simplified"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "landscape",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "simplified"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "road.highway",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "off"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "road.local",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "on"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "road.highway",-->
+        <!--"elementType": "geometry",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"visibility": "on"-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "water",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"color": "#84afa3"-->
+            <!--},-->
+            <!--{-->
+                <!--"lightness": 52-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"saturation": -17-->
+            <!--},-->
+            <!--{-->
+                <!--"gamma": 0.36-->
+            <!--}-->
+        <!--]-->
+    <!--},-->
+    <!--{-->
+        <!--"featureType": "transit.line",-->
+        <!--"elementType": "geometry",-->
+        <!--"stylers": [-->
+            <!--{-->
+                <!--"color": "#3f518c"-->
+            <!--}-->
+        <!--]-->
+    <!--}-->
+				<!--]-->
+            <!--};-->
+
+            <!--// Get the HTML DOM element that will contain your map -->
+            <!--// We are using a div with id="map" seen below in the <body>-->
+            <!--var mapElement = document.getElementById('evnetmap');-->
+
+            <!--// Create the Google Map using our element and options defined above-->
+            <!--var map = new google.maps.Map(mapElement, mapOptions);-->
+
+            <!--// Let's also add a marker while we're at it-->
+            <!--var marker = new google.maps.Marker({-->
+                <!--position: new google.maps.LatLng(23.7286, 90.3854),-->
+                <!--map: map,-->
+                <!--title: 'Dcare!',-->
+                <!--icon: 'images/icons/map-2.png',-->
+                <!--animation:google.maps.Animation.BOUNCE-->
+
+            <!--});-->
+        <!--}-->
+    <!--</script>-->
+
+
+

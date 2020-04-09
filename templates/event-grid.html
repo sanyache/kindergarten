@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+            	<!--<img src="images/bg-png/6.png" alt="bradcaump images">-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Наші заходи</h2>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+		<!-- Start Our Event Area -->
+		<div class="dcare__event__area bg--white section-padding--lg">
+			<div class="container pages">
+				<div class="row  items event-grid-page">
+					{% for event in events %}
+					<!-- Start Single Event -->
+					<div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+						<div class="dcare__event">
+							<div class="event__thumb">
+								<a href="{% url 'event_details' event.id %}">
+									{% if event.title_image %}
+									<img src="{{ event.title_image_avatar.url }}">
+									{% else %}
+									<img src="{% static 'images/event/mid-img-2/1.jpg' %}"
+										 alt="event images">
+									{% endif %}
+								</a>
+							</div>
+							<div class="event__content">
+								<div class="event__pub">
+									<div class="event__date">
+										<span class="date">{{ event.scheduled.day }}</span>
+									</div>
+									<ul class="event__time">
+										<li>{{ event.scheduled|date:'M'}}
+											<i class="fa fa-clock-o"></i>{{ event.scheduled.time }}
+										</li>
+										<li><i class="fa fa-home"></i>{{ event.place }}</li>
+									</ul>
+								</div>
+								<div class="event__inner">
+									<p><a href="event-details.html">{{ event.title }}...</a></p>
+								</div>
+								<ul class="event__btn">
+									{% if event.is_active %}
+									<li><a href="{% url 'event_details' event.id %}">Уже скоро</a></li>
+									{% else %}
+									<li><a href="{% url 'event_details' event.id %}" class="btn btn-success">Подія
+										відбулася</a></li>
+									{% endif %}
+									<li><a href="{% url 'event_details' event.id %}">Дізнатися
+										більше</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- Start Single Event -->
+					{% endfor %}
+
+
+				</div>
+
+				{% if events.has_next %}
+    			<div class="text-center ">
+    				<a class="btn btn-warning mt-4 load-more"
+					   href="?page={{ event_list.next_page_number }}"
+					   data-pages={{paginator.num_pages}}
+					   style="color: white"	>Завантажити<br>ще </a>
+    			</div>
+  				{% endif %}
+
+
+			</div>
+		</div>
+		<!-- End Our Event Area -->
+{% endblock content %}
+
