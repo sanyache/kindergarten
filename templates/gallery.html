@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!-- Main wrapper -->
+	<div class="wrapper" id="wrapper">
+
+		<!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+				<div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Наша галерея</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+		<!-- Start Our Gallery Area -->
+		<div class="junior__gallery__area gallery-page-one gallery__masonry__activation gallery--3  section-padding--lg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="gallery__menu">
+                            <button data-filter="*"  class="is-checked">All</button>
+							{% for category in categories %}
+                            <button data-filter=".{{ category }}">{{ category.name }}</button>
+							{% endfor %}
+                            <button data-filter=".cat--2">Games</button>
+                            <button data-filter=".cat--3">Event</button>
+                      	</div>
+					</div>
+				</div>
+				<div class="row galler__wrap masonry__wrap mt--80">
+					<!-- Start Single Gallery -->
+					{% for gallery in galleries %}
+					<div
+							class="col-lg-3 col-md-4 col-sm-6 col-12 gallery__item {{ gallery.category }} mr-2">
+						<div class="gallery">
+							<div class="gallery__thumb">
+								<a href="{% url 'gallery_detail' gallery.id %}">
+									<img src="{{ gallery.title_image_avatar.url }}"
+										 alt="{{ gallery.title }}">
+								</a>
+							</div>
+							<div class="gallery__hover__inner">
+								<div class="gallery__hover__action">
+									<ul class="gallery__zoom">
+										<li><a href="{{ gallery.title_image_big.url }}"
+											   data-lightbox="grportimg"
+											   data-title="My caption"><i class="fa fa-search"></i></a></li>
+										<li><a
+												href="{% url 'gallery_detail' gallery.id %}"><i
+												class="fa fa-link"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>	
+					</div>
+					{% endfor %}
+					<!-- End Single Gallery -->
+
+				</div>	
+			</div>
+		</div>
+		<!-- End Our Gallery Area -->
+
+
+
+	</div><!-- //Main wrapper -->
+
+{% endblock content %}
+
+
+

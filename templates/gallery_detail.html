@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!-- Main wrapper -->
+	<div class="wrapper" id="wrapper">
+
+		<!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+				<div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">{{ gallery.title }}</h2>
+								<h4><a href="{% url 'gallery_list' %}">Галереї</a></h4>
+                            </div>
+							<div>
+
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+		<!-- Start Our Gallery Area -->
+		<div class="junior__gallery__area gallery-page-one gallery__masonry__activation gallery--3  section-padding--lg">
+			<div class="container pages">
+				<div class="row items galler__wrap masonry__wrap mt--80">
+					<!-- Start Single Gallery -->
+					{% for photo in photos %}
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12 gallery__item cat--2">
+						<div class="gallery">
+							<div class="gallery__thumb">
+								<a href="#">
+									<img src="{{ photo.image_avatar.url }}"
+										 alt="">
+								</a>
+							</div>
+							<div class="gallery__hover__inner">
+								<div class="gallery__hover__action">
+									<ul class="gallery__zoom">
+										<li><a href="{{ photo.image_big.url }}"
+											   data-lightbox="grportimg"
+											   data-title="My caption"><i class="fa fa-search"></i></a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- End Single Gallery -->
+
+				</div>
+				<!-- Start Load More -->
+				{% if photos.has_next %}
+    			<div class="text-center ">
+    				<a class="btn btn-success mt-4 load-more"
+					   href="?page={{ gallery_detail.next_page_number }}"
+					   data-pages={{paginator.num_pages}}
+					   style="color: white"	>Завантажити<br>ще </a>
+    			</div>
+  				{% endif %}
+				<!-- End Load More -->
+			</div>
+		</div>
+		<!-- End Our Gallery Area -->
+
+
+
+	</div><!-- //Main wrapper -->
+
+{% endblock content %}
