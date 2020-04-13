@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Про нас</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="{% url 'index' %}">Головна</a>
+                                  <!--<span class="brd-separetor"><img-->
+										  <!--src="{% static 'images/icons/brad.png' %} "-->
+																   <!--alt="separator images"></span>-->
+                                  <span class="breadcrumb-item active">Про нас</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+		<!-- Start Choose Us Area -->
+		<section class="dcare__choose__us__area section-padding--lg bg--white">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-md-12">
+						<div class="section__title text-center">
+							<h2 class="title__line">Трохи про нас</h2>
+							<p>Ми дбаємо про дітей і допомагаємо їм розкрити свої таланти!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mt--40">
+					<!-- Start Single Choose Option -->
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="dacre__choose__option">
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__inner">
+									<h4><a href="">Вивчення іноземної мови</a></h4>
+									<p>Впроваджується вивчення англійської мови</p>
+								</div>
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/1.png' %}"
+										 alt="choose icon">
+								</div>
+							</div>
+							<!-- End Single Choose -->
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__inner">
+									<h4><a href="">Якісне харчування</a></h4>
+									<p>Триразове харчування із якісних продуктів</p>
+								</div>
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/2.png' %}"
+										 alt="choose icon">
+								</div>
+							</div>
+							<!-- End Single Choose -->
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__inner">
+									<h4><a href="">Екскурсії</a></h4>
+									<p>Проводимо екскурсії по рідному краю</p>
+								</div>
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/3.png' %}"
+										 alt="choose icon">
+								</div>
+							</div>
+							<!-- End Single Choose -->
+						</div>
+					</div>
+					<!-- End Single Choose Option -->
+					<!-- Start Single Choose Option -->
+					<div class="col-lg-4 col-md-6 col-sm-12 d-block d-lg-block d-md-none">
+						<div class="dacre__choose__option">
+							<div class="choose__big__img">
+								<img src="{% static 'images/choose/big-img/1.png' %}"
+									 alt="choose images">
+							</div>
+						</div>
+					</div>
+					<!-- End Single Choose Option -->
+					<!-- Start Single Choose Option -->
+					<div class="col-lg-4 col-md-6 col-sm-12">
+						<div class="dacre__choose__option text__align--left">
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/4.png' %}"
+										 alt="choose icon">
+								</div>
+								<div class="choose__inner">
+									<h4><a href="">Професійні вихователі</a></h4>
+									<p>Професійні вихователі які люблять свою професію</p>
+								</div>
+							</div>
+							<!-- End Single Choose -->
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/5.png' %}"
+										 alt="choose icon">
+								</div>
+								<div class="choose__inner">
+									<h4><a href="">Новітні технології навчання</a></h4>
+									<p>Впроваджуємо новітні технології з використанням сучасних
+										девайсів</p>
+								</div>
+							</div>
+							<!-- End Single Choose -->
+							<!-- Start Single Choose -->
+							<div class="choose">
+								<div class="choose__icon">
+									<img src="{% static 'images/choose/icon/6.png' %}"
+										 alt="choose icon">
+								</div>
+								<div class="choose__inner">
+									<h4><a href="">Розвиваючі ігри</a></h4>
+									<p>Цікаві захоплюючі ігри, які розвивають дітей</p>
+								</div>
+							</div>
+							<!-- End Single Choose -->
+						</div>
+					</div>
+					<!-- End Single Choose Option -->
+				</div>
+			</div>
+		</section>
+		<!-- End Choose Us Area -->
+
+		<!-- Start Courses Area -->
+		<section class="dcare__courses__area section-padding--lg bg--white">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-md-12">
+						<div class="section__title text-center">
+							<h2 class="title__line">Наші групи</h2>
+							<p> В садочку діти розподілені по віковим групам </p>
+						</div>
+					</div>
+				</div>
+				<div class="row mt--40">
+					<!-- Start Single Courses -->
+					{% for group in groups %}
+					<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+						<div class="courses">
+							<div class="courses__thumb">
+								<a href="{% url 'group_detail' group.id %}">
+									{% if group.image %}
+									<img src="{{ group.image_avatar.url }}" alt="courses images">
+									{% endif %}
+								</a>
+							</div>
+							<div class="courses__inner">
+
+								<div class="courses__wrap">
+
+									<div class="courses__content">
+										<h4><a href="{% url 'group_detail' group.id %}">
+											{{ group.name }}
+											</a>
+										</h4>
+										<p>{{ group.description }}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- End Single Courses -->
+
+				</div>
+			</div>
+		</section>
+		<!-- End Courses Area -->
+		<!-- Start Team Area -->
+		<section class="dcare__team__area pb--150 bg--white">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-md-12">
+						<div class="section__title text-center">
+							<h2 class="title__line">Наші вихователі</h2>
+							<p>У нас чудова команда!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mt--40">
+					<!-- Start Single Team -->
+					{% for tutor in tutors %}
+					<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+						<div class="team">
+							<div class="team__thumb">
+								<a href="#">
+									<img src="{{ tutor.image_avatar.url }}" alt="team images">
+								</a>
+								<!--<div class="team__hover__action">-->
+									<!--<div class="team__hover__inner">-->
+										<!--<p>Lorem ipsum dolor sit amet, consecteturadmodi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>-->
+										<!--<ul class="dacre__social__link&#45;&#45;2 d-flex justify-content-center">-->
+											<!--<li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>-->
+											<!--<li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>-->
+											<!--<li class="vimeo"><a href="https://vimeo.com/"><i class="fa fa-vimeo"></i></a></li>-->
+											<!--<li class="pinterest"><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p"></i></a></li>-->
+										<!--</ul>-->
+									<!--</div>-->
+								<!--</div>-->
+							</div>
+							<div class="team__details">
+								<div class="team__info">
+									<h6><a href="#">{{ tutor.get_full_name }}</a></h6>
+									<span>Кваліфікація: {{ tutor.qualification }}</span>
+									<br/>
+									<span>Стаж: {{ tutor.experience }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<!-- End Single Team -->
+
+				</div>
+			</div>
+		</section>
+		<!-- End Team Area -->
+
+
+{% endblock content %}
+

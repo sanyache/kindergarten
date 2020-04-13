@@ -74,31 +74,26 @@
 										</a></li>
                                         <li class="drop"><a href="#">Ми</a>
                                             <ul class="dropdown__menu">
-                                                <li><a href="about-us.html">about us</a></li>
-                                                <li><a href="service.html">our service</a></li>
-                                                <li><a href="class-details.html">class details</a></li>
+                                                <li><a href="{% url 'about_us' %}">Про нас</a></li>
                                                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
-                                                <li><a href="gallery-details.html">gallery Details</a></li>
-                                                <li><a href="cart.html">cart Page</a></li>
-                                                <li><a href="wishlist.html">wishlist page</a></li>
-                                                <li><a href="checkout.html">checkout page</a></li>
+                                                <li><a href="wishlist.html">Електронна черга</a></li>
+                                                <li><a href="checkout.html">Фінансові звіти</a></li>
                                             </ul>
                                         </li>
-                                        <li class="drop"><a href="shop-grid.html">Shop</a> </li>
-                                        <li class="drop"><a href="blog-grid.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li class="drop"><a href="blog-grid.html">Статті</a></li>
+                                        <li><a href="contact.html">Контакти</a></li>
                                     </ul>
                                 </nav>
 							</div>
 						</div>
-						<div class="col-lg-1 col-sm-4 col-md-4 order-2 order-lg-3">
-							<div class="shopbox d-flex justify-content-end align-items-center">
-								<a class="minicart-trigger" href="#">
-									<i class="fa fa-shopping-basket"></i>
-								</a>
-								<span>03</span>
-							</div>
-						</div>
+						<!--<div class="col-lg-1 col-sm-4 col-md-4 order-2 order-lg-3">-->
+							<!--<div class="shopbox d-flex justify-content-end align-items-center">-->
+								<!--<a class="minicart-trigger" href="#">-->
+									<!--<i class="fa fa-shopping-basket"></i>-->
+								<!--</a>-->
+								<!--<span>03</span>-->
+							<!--</div>-->
+						<!--</div>-->
 					</div>
 					<!-- Mobile Menu -->
                     <div class="mobile-menu d-block d-lg-none">
@@ -108,9 +103,9 @@
 									src="{% static 'images/logo/junior.png' %}"
 														   alt="logo"></a>
                     	</div>
-                    	<a class="minicart-trigger" href="#">
-                    		<i class="fa fa-shopping-basket"></i>
-                    	</a>
+                    	<!--<a class="minicart-trigger" href="#">-->
+                    		<!--<i class="fa fa-shopping-basket"></i>-->
+                    	<!--</a>-->
                     </div>
                     <!-- Mobile Menu -->
 				</div>

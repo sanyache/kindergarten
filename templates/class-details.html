@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">{{ group.name }}</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="{% url 'index' %}">Головна</a>
+                                  <span class="brd-separetor">
+									  <img src="{% static 'images/icons/brad.png' %}"
+										   alt="separator images">
+								  </span>
+                                  <span class="breadcrumb-item active">про групу</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Class Details -->
+        <section class="page-class-details bg--white section-padding--lg">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-lg-12">
+        				<div class="class__quality__desc">
+
+        					<div class="class__thumb">
+        						<!--<div class="courses__type d-flex justify-content-between">-->
+        							<!--<ul class="d-flex">-->
+        								<!--<li>Вікова категорія :-->
+											<!--<span>{{ group.age_group }}</span>-->
+										<!--</li>-->
+        							<!--</ul>-->
+
+        						<!--</div>-->
+        						<div class="courses__images">
+        							<img src="{{ group.image_big.url }}"
+										 alt="class images">
+        						</div>
+
+        					</div>
+							<div class="class-details-inner">
+								<div class="courses__inner">
+									<h2>{{ group.name }}</h2>
+									<!--<ul>-->
+										<!--<li>Available Seats : <span>09</span></li>-->
+										<!--<li>Class Duration :  <i class="fa fa-calendar"></i><span>4 Month</span></li>-->
+									<!--</ul>-->
+									<h5>{{ group.description }}</h5>
+								</div>
+
+								<div class="class__nav nav justify-content-between" role="tablist">
+		                            <a class="nav-item nav-link" data-toggle="tab"
+									   href="#nav-view" role="tab">Про нас</a>
+		                            <a class="nav-item nav-link active" data-toggle="tab"
+									   href="#nav-teacher" role="tab">Вихователі</a>
+		                            <a class="nav-item nav-link" data-toggle="tab"
+									   href="#nav-review" role="tab">Помічники</a>
+	                        	</div>
+
+	                        	<div class="class__tab__content--inner">
+	                        		<div class="class__view single-class-content tab-pane fade"
+										 id="nav-view" role="tablist">
+	                        			<h4>{{ group.about_us }}</h4>
+
+	                        		</div>
+
+									<div class="teacher__view single-class-content tab-pane fade show active"
+										 id="nav-teacher" role="tablist">
+										<!-- Start Dingle Teacher -->
+										{% for tutor in tutors %}
+										<div class="teacher">
+											<img src="{{ tutor.image_avatar.url }}" alt="teacher">
+											<h2>{{ tutor.get_full_name }}</h2>
+											<span>Освіта: {{ tutor.education }}</span><br/>
+											<span>Стаж: {{ tutor.experience }}</span><br/>
+											<span>Кваліфікація: {{ tutor.qualification }}</span><br/>
+											<p>{{ tutor.description }}</p>
+										</div>
+										{% endfor %}
+										<!-- End Dingle Teacher -->
+									</div>
+									<div class="class_review single-class-content tab-pane fade show active"
+										 id="nav-review" role="tablist">
+										<!-- Start Dingle Assistant -->
+										{% for assistant in assistants %}
+										<div class="class_review_inner">
+											<img src="{{ assistant.image_avatar.url }}"
+												 alt="teacher">
+											<h2>{{ assistant.get_full_name }}</h2>
+											<span>Освіта: {{ assistant.education }}</span><br/>
+											<span>Стаж: {{ assistant.experience }}</span><br/>
+											<span>Кваліфікація: {{ assistant.qualification}}</span>
+											<br/>
+											<p>{{ assistant.description }}</p>
+										</div>
+										{% endfor %}
+										<!-- End Dingle Assistant -->
+									</div>
+	                        	</div>
+							</div>
+							<!-- Start Related Class -->
+							<div class="related__class__wrapper">
+								<h2 class="title">В групі також діють гуртки</h2>
+								<div class="row">
+									<!-- Start Single Class -->
+									{% for section in group.section.all %}
+									<div class="card mr-4 mt-4" style="width: 24rem;">
+										<img src="{{ section.image.url }}" class="card-img-top"
+                                             alt="...">
+  										<div class="card-body">
+											<h5 class="card-title">{{ section.name }}</h5><br/>
+                                            <h6>Керівник: {{ section.tutor.get_full_name }}
+                                            </h6><br/>
+											<p class="card-text">{{ section.description }}</p>
+
+  										</div>
+									</div>
+									{% endfor %}
+									<!-- End Single Classs -->
+
+
+
+								</div>
+							</div>
+							<!-- End Related Class -->
+
+        				</div>
+        			</div>
+
+        		</div>
+        	</div>
+        </section>
+        <!-- End Class Details -->
+				<!-- Footer Area -->
+
+
+
+ {% endblock content %}
+
+
+
+
+
