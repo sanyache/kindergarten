@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">{{ article.title }}</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="{% url 'index' %}">Головна</a>
+                                  <span class="brd-separetor">
+									  <img src="{% static 'images/icons/brad.png' %}"
+										   alt="separator images">
+								  </span>
+                                  <span class="breadcrumb-item active">Стаття</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <!-- Start Blog Grid Area -->
+        <div class="dcare__blog__list bg--white section-padding--lg">
+        	<div class="container">
+        		<div class="row">
+        			<!-- Start BLog Details -->
+        			<div class="col-lg-9">
+        				<div class="page__blog__details">
+        					<article class="dacre__blog__details">
+        						<div class="blog__thumb">
+									{% if article.image %}
+        							<img src="{{ article.image.url }}" alt="blog images">
+									{% else %}
+									<img src="{% static 'images/blog/bl-2/1.jpg' %}"
+										 style="height:304px; width:370px;">
+									{% endif %}
+        						</div>
+        						<div class="blog__inner">
+        							<h2>{{ article.title }}</h2>
+        							<ul>
+        								<li>Автор:
+											<a href="#"> {{ article.author.username }}</a></li>
+        								<li>{{ article.created }}</li>
+										<li>Категорія {{ article.category }}</li>
+        							</ul>
+
+        							<p>{{ article.content|safe }}</p>
+
+
+
+        						</div>
+        					</article>
+
+
+        						<!--<div class="blog__share">-->
+        							<!--<span>Share By:</span>-->
+        							<!--<ul class="dacre__social__link&#45;&#45;2 bg&#45;&#45;2 d-flex justify-content-end">-->
+										<!--<li class="facebook"><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>-->
+										<!--<li class="twitter"><a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>-->
+										<!--<li class="vimeo"><a target="_blank" href="https://www.vimeo.com/"><i class="fa fa-vimeo"></i></a></li>-->
+										<!--<li class="pinterest"><a target="_blank" href="https://pinterest.com"><i class="fa fa-pinterest"></i></a></li>-->
+									<!--</ul>-->
+        						<!--</div>-->
+        					</div>
+							
+							<!--&lt;!&ndash; Start Blog Author &ndash;&gt;-->
+							<!--<div class="blog__author text-center">-->
+								<!--<div class="author__thumb">-->
+									<!--<img src="images/blog/author/1.png" alt="author images">-->
+								<!--</div>-->
+								<!--<div class="author__info">-->
+									<!--<span>February  13,  2018</span>-->
+									<!--<h6><span>Author :</span> Robart Hanson</h6>-->
+									<!--<p>Loxcepteur sint  occaecat cupidatat non prdent, suntw in culpa qui officia deserunt molli aLorem ipsum dolor sitamet, cadipisicinelit, sed do eiusmod.</p>-->
+									<!--<ul class="dacre__social__link&#45;&#45;2 bg&#45;&#45;2 d-flex justify-content-center">-->
+										<!--<li class="facebook"><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>-->
+										<!--<li class="twitter"><a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>-->
+										<!--<li class="vimeo"><a target="_blank" href="https://www.vimeo.com/"><i class="fa fa-vimeo"></i></a></li>-->
+										<!--<li class="pinterest"><a target="_blank" href="https://pinterest.com"><i class="fa fa-pinterest"></i></a></li>-->
+									<!--</ul>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--&lt;!&ndash; End Blog Author &ndash;&gt;-->
+
+							<!--&lt;!&ndash; Start Latest Blog &ndash;&gt;-->
+							<!--<div class="blog__latest">-->
+								<!--<h4 class="title__line&#45;&#45;3">Latest Blog</h4>-->
+								<!--<div class="row">-->
+
+									<!--&lt;!&ndash; Start Single BLog &ndash;&gt;-->
+		                            <!--<div class="col-12 col-lg-6 col-md-6">-->
+		                                <!--<article class="blog__single blog__item">-->
+		                                    <!--<div class="blog__thumb">-->
+		                                        <!--<a href="blog-details.html">-->
+		                                            <!--<img src="images/blog/big-img/10.jpg" alt="blog images">-->
+		                                        <!--</a>-->
+		                                    <!--</div>-->
+		                                    <!--<div class="blog__content">-->
+		                                        <!--<h2><a href="blog-details.html">You don’t have basic knowledge..! So, stay learning with us</a></h2>-->
+		                                        <!--<ul class="bl__post">-->
+		                                            <!--<li>Children Blog : Post By <a href="#">Supa</a></li>-->
+		                                            <!--<li>Date : 10th November, 2017</li>-->
+		                                        <!--</ul>-->
+		                                        <!--<p>Lorem ipsum dolor sit amet, consect adipi sicinge elit, sed do eiusmod tempor incididunt ut labor et dolore magna aliqua. Ut enivenitrexercit ullamco laboriconsequat. Duis eu fugiat nulla par</p>-->
+		                                        <!--<div class="blog__btn">-->
+		                                            <!--<a class="dcare__btn btn__f6f6f6" href="blog-details.html">Read More</a>-->
+		                                            <!--<div class="blog__share">-->
+		                                                <!--<a href="#"><i class="fa fa-share-alt"></i></a>-->
+		                                                <!--<ul class="dacre__social__link d-flex justify-content-start">-->
+		                                                    <!--<li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>-->
+		                                                    <!--<li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>-->
+		                                                    <!--<li class="pinterest"><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p"></i></a></li>-->
+		                                                <!--</ul>-->
+		                                            <!--</div>-->
+		                                        <!--</div>-->
+		                                    <!--</div>-->
+		                                <!--</article>-->
+		                            <!--</div>-->
+		                            <!--&lt;!&ndash; End Single BLog &ndash;&gt;-->
+
+
+
+							<!-- Start Blog Comment -->
+							<!--<div class="blog__comment">-->
+								<!--<h4 class="title__line&#45;&#45;3">Comments</h4>-->
+								<!--<div class="comment__wrapper">-->
+
+									<!--<div class="comment d-flex">-->
+										<!--<div class="comment__thumb">-->
+											<!--<img src="images/author/1.png" alt="author images">-->
+										<!--</div>-->
+										<!--<div class="comment__content">-->
+											<!--<div class="author__content">-->
+												<!--<div class="author__info">-->
+													<!--<h4><a href="#">Helen Nancy</a></h4>-->
+													<!--<ul>-->
+														<!--<li>13 Oct 2017</li>-->
+														<!--<li>05.00am</li>-->
+													<!--</ul>-->
+												<!--</div>-->
+												<!--<div class="author__reply">-->
+													<!--<a class="reply" href="#">Reply</a>-->
+												<!--</div>-->
+											<!--</div>-->
+											<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teimpor incididunt ut labore et dolore magna aliqua. </p>-->
+										<!--</div>-->
+									<!--</div>-->
+
+									<!--<div class="comment d-flex reply">-->
+										<!--<div class="comment__thumb">-->
+											<!--<img src="images/author/2.png" alt="author images">-->
+										<!--</div>-->
+										<!--<div class="comment__content">-->
+											<!--<div class="author__content">-->
+												<!--<div class="author__info">-->
+													<!--<h4><a href="#">Carolina  Hokins</a></h4>-->
+													<!--<ul>-->
+														<!--<li>13 Oct 2017</li>-->
+														<!--<li>05.00am</li>-->
+													<!--</ul>-->
+												<!--</div>-->
+												<!--<div class="author__reply">-->
+													<!--<a class="reply" href="#">Reply</a>-->
+												<!--</div>-->
+											<!--</div>-->
+											<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teimpor incididunt ut labore et dolore magna aliqua. </p>-->
+										<!--</div>-->
+									<!--</div>-->
+
+									<!--<div class="comment d-flex">-->
+										<!--<div class="comment__thumb">-->
+											<!--<img src="images/author/3.png" alt="author images">-->
+										<!--</div>-->
+										<!--<div class="comment__content">-->
+											<!--<div class="author__content">-->
+												<!--<div class="author__info">-->
+													<!--<h4><a href="#">ketrin fransisco</a></h4>-->
+													<!--<ul>-->
+														<!--<li>13 Oct 2017</li>-->
+														<!--<li>05.00am</li>-->
+													<!--</ul>-->
+												<!--</div>-->
+												<!--<div class="author__reply">-->
+													<!--<a class="reply" href="#">Reply</a>-->
+												<!--</div>-->
+											<!--</div>-->
+											<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teimpor incididunt ut labore et dolore magna aliqua. </p>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!-- End Blog Comment -->
+
+
+							<!-- Start Comment Form -->
+							<!--<div class="commentfield">-->
+								<!--<h4 class="title__line&#45;&#45;3">Leave A Reply</h4>-->
+								<!--<form action="#">-->
+									<!--<div class="row">-->
+
+										<!--<div class="col-md-6 col-lg-6 col-sm-6 col-12">-->
+											<!--<div class="single__input__box">-->
+												<!--<input type="text" id="name" placeholder="Name">-->
+											<!--</div>-->
+										<!--</div>-->
+
+										<!--<div class="col-md-6 col-lg-6 col-sm-6 col-12 xs-mt-30">-->
+											<!--<div class="single__input__box">-->
+												<!--<input type="email" id="email" placeholder="E-mail">-->
+											<!--</div>-->
+										<!--</div>-->
+
+										<!--<div class="col-md-12 col-lg-12 col-sm-12 col-12">-->
+											<!--<div class="single__input__box">-->
+												<!--<textarea name="message" id="message" placeholder="Type your message here.."></textarea>-->
+											<!--</div>-->
+											<!--<div class="submit__btn">-->
+												<!--<a class="dcare__btn" href="#">submit</a>-->
+											<!--</div>-->
+										<!--</div>-->
+
+									<!--</div>-->
+								<!--</form>-->
+							<!--</div>-->
+							<!-- End Comment Form -->
+
+        				</div>
+        			</div>
+        			<!-- End BLog Details -->
+
+        		</div>
+        	</div>
+        </div>
+        <!-- End Blog Grid Area -->
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+

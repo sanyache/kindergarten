@@ -24,6 +24,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', include('event.urls')),
     path('staff/', include('staff.urls')),
+    path('article/', include('article.urls')),
     path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),

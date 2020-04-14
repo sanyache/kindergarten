@@ -123,66 +123,28 @@
 					<div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12">
 						<div class="testimonial__container">
 							<div class="tes__activation--1 owl-carousel owl-theme">
+								{% for quote in quotes %}
 								<div class="testimonial__bg">
 									<!-- Start Single Testimonial -->
 									<div class="testimonial text-center">
 										<div class="testimonial__inner">
+
 											<div class="test__icon">
-												<img
-														src="{% static 'images/testimonial/icon/1.png' %}"
+												<img src="{% static 'images/testimonial/icon/1.png' %}"
 													 alt="icon images">
 											</div>
 											<div class="client__details">
-												<p>Lorem ipsum dolor t dolore magna aliqua. Ut enim ad minim veniam, quis nostexercitation ullamco laboris nisimollit anim id est lsunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatd.</p>
+												<p>{{ quote.content }}</p>
 												<div class="client__info">
-													<h6>Lora alica</h6>
-													<span>Gardients of student</span>
+													<h6>{{ quote.author }}</h6>
+													<span></span>
 												</div>
 											</div>
 										</div>
 									</div>
 									<!-- End Single Testimonial -->
 								</div>
-								<div class="testimonial__bg">
-									<!-- Start Single Testimonial -->
-									<div class="testimonial text-center">
-										<div class="testimonial__inner">
-											<div class="test__icon">
-												<img
-														src="{% static 'images/testimonial/icon/1.png' %}"
-													 alt="icon images">
-											</div>
-											<div class="client__details">
-												<p>Kohinur ipsum dolor t dolore magna aliqua. Ut enim ad minim veniam, quis nostexercitation ullamco laboris nisimollit anim id est lsunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatd.</p>
-												<div class="client__info">
-													<h6>Kohinur alica</h6>
-													<span>Gardients of student</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- End Single Testimonial -->
-								</div>
-								<div class="testimonial__bg">
-									<!-- Start Single Testimonial -->
-									<div class="testimonial text-center">
-										<div class="testimonial__inner">
-											<div class="test__icon">
-												<img
-														src="{% static 'images/testimonial/icon/1.png' %}"
-													 alt="icon images">
-											</div>
-											<div class="client__details">
-												<p>Najnin ipsum dolor t dolore magna aliqua. Ut enim ad minim veniam, quis nostexercitation ullamco laboris nisimollit anim id est lsunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatd.</p>
-												<div class="client__info">
-													<h6>Najnin alica</h6>
-													<span>Gardients of student</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- End Single Testimonial -->
-								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
@@ -197,7 +159,7 @@
 					<div class="col-lg-12 col-sm-12 col-md-12">
 						<div class="section__title text-center">
 							<h2 class="title__line">
-								<a href="{% url 'gallery_list' %}">	Наша алерея</a>
+								<a href="{% url 'gallery_list' %}">	Наша галерея</a>
 							</h2>
 							<p>Фото звіт нашого активного життя!</p>
 						</div>
@@ -329,27 +291,6 @@
 						</div>	
 					</div>	
 					<!-- End Single Gallery -->
-					<!-- Start Single Gallery -->
-					<div class="col-lg-4 col-md-6 col-sm-6 col-12">
-						<div class="gallery wow fadeInUp">
-							<div class="gallery__thumb">
-								<a href="#">
-									<img src="images/gallery/gallery-1/6.jpg" alt="gallery images">
-								</a>
-							</div>
-							<div class="gallery__hover__inner">
-								<div class="gallery__hover__action">
-									<ul class="gallery__zoom">
-										<li><a href="{% static 'images/gallery/big-img/6.jpg' %}"
-											   data-lightbox="grportimg" data-title="My caption"><i class="fa fa-search"></i></a></li>
-										<li><a href="gallery-details.html"><i class="fa fa-link"></i></a></li>
-									</ul>
-									<h4 class="gallery__title"><a href="#">Creating Funny Things</a></h4>
-								</div>
-							</div>
-						</div>	
-					</div>	
-					<!-- End Single Gallery -->
 				</div>	
 			</div>
 		</section>
@@ -360,82 +301,38 @@
 				<div class="row">
 					<div class="col-lg-12 col-sm-12 col-md-12">
 						<div class="section__title text-center white--title">
-							<h2 class="title__line">Recent Blog</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunte magna aliquaet, consectetempora incidunt</p>
+							<h2 class="title__line">
+								<a href="{% url 'article_list' %}">Останні статті</a></h2>
+							<p>Тут розміщенні статті для батькі про виховання дітей</p>
 						</div>
 					</div>
 				</div>
 				<div class="row blog__wrapper mt--40">
 					<!-- Start Single Blog -->
-					<div class="col-lg-4 col-md-6 col-sm-12 wow fadeInLeft">
+					{% for article in articles %}
+					<div class="col-lg-4 col-md-6 col-sm-12 wow fadeInLeft ">
 						<article class="blog">
 							<div class="blog__date">
-								<span>Date : 10th November, 2017</span>
+								<span>{{ article.created }}</span>
 							</div>
 							<div class="blog__thumb">
 								<a href="blog-details.html">
-									<img src="{% static 'images/blog/md-img/1.jpg' %}"
+									<img src="{{ article.image_avatar.url }}"
 										 alt="blog images">
 								</a>
 							</div>
-							<div class="blog__inner">
-								<span>Children Blog : Post By Ariana</span>
-								<h4><a href="blog-details.html">Basic Knowledge About Drawing</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur ad modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-								<ul class="blog__meta d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-									<li><a href="#">Comments : 05</a></li>
-									<li><a href="#">Like : 07</a></li>
-								</ul>
+							<div class="blog__inner" style="height:400px;">
+								<span>{{ article.author }}</span>
+								<h4><a href="blog-details.html">{{ article.title }}</a></h4>
+								<p >{{ article.description }}</p>
+								<!--<ul class="blog__meta d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">-->
+									<!--<li><a href="#">Comments : 05</a></li>-->
+									<!--<li><a href="#">Like : 07</a></li>-->
+								<!--</ul>-->
 							</div>
 						</article>
 					</div>
-					<!-- End Single Blog -->
-					<!-- Start Single Blog -->
-					<div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-						<article class="blog">
-							<div class="blog__date">
-								<span>Date : 10th November, 2017</span>
-							</div>
-							<div class="blog__thumb">
-								<a href="blog-details.html">
-									<img src="images/blog/md-img/2.jpg" alt="blog images">
-								</a>
-							</div>
-							<div class="blog__inner">
-								<span>Children Blog : Post By Jonson</span>
-								<h4><a href="blog-details.html">Study Tour</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur ad modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-								<ul class="blog__meta d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-									<li><a href="#">Comments : 05</a></li>
-									<li><a href="#">Like : 07</a></li>
-								</ul>
-							</div>
-						</article>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Start Single Blog -->
-					<div class="col-lg-4 col-md-6 col-sm-12 wow fadeInRight">
-						<article class="blog">
-							<div class="blog__date">
-								<span>Date : 10th November, 2017</span>
-							</div>
-							<div class="blog__thumb">
-								<a href="blog-details.html">
-									<img src="{% static 'images/blog/md-img/3.jpg' %}"
-										 alt="blog images">
-								</a>
-							</div>
-							<div class="blog__inner">
-								<span>Children Blog : Post By Michel Jack</span>
-								<h4><a href="blog-details.html">Childrens Day</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur ad modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-								<ul class="blog__meta d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-									<li><a href="#">Comments : 05</a></li>
-									<li><a href="#">Like : 07</a></li>
-								</ul>
-							</div>
-						</article>
-					</div>
+					{% endfor %}
 					<!-- End Single Blog -->
 				</div>
 			</div>
@@ -447,7 +344,9 @@
 				<div class="row">
 					<div class="col-lg-12 col-sm-12 col-md-12">
 						<div class="section__title text-center">
-							<h2 class="title__line">Заплановані події</h2>
+							<h2 class="title__line">
+								<a href="{% url 'event_list' %}">Заплановані події</a>
+							</h2>
 							<p>Наші діти не сумують! Долучайтеся до нас!</p>
 						</div>
 					</div>

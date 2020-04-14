@@ -23,7 +23,7 @@
 							<div class="jun__header__top__left">
 								<ul class="top__address d-flex justify-content-start align-items-center flex-wrap flex-lg-nowrap flex-md-nowrap">
 									<li><i class="fa fa-envelope"></i><a href="#">junior@mail.com</a></li>
-									<li><i class="fa fa-phone"></i><span>Contact Now :</span><a
+									<li><i class="fa fa-phone"></i><span>Тел :</span><a
 											href="#">+380962733127</a></li>
 								</ul>
 							</div>
@@ -56,7 +56,7 @@
 					<div class="row d-none d-lg-flex">
 						<div class="col-sm-4 col-md-6 col-lg-2 order-1 order-lg-1">
 							<div class="logo">
-								<a href="index.html">
+								<a href="{% url 'index' %}">
 									<img src="{% static 'images/logo/junior.png' %}"
 										 alt="logo images">
 								</a>
@@ -68,7 +68,6 @@
                                     <ul class="mainmenu">
                                         <li
 												class="drop"><a href="{% url 'index' %}">Головна</a></li>
-                                        <li class="drop"><a href="class-grid.html">Групи</a></li>
                                         <li
 												class="drop"><a href="{%  url 'event_list' %}">Заходи
 										</a></li>
@@ -77,10 +76,14 @@
                                                 <li><a href="{% url 'about_us' %}">Про нас</a></li>
                                                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
                                                 <li><a href="wishlist.html">Електронна черга</a></li>
-                                                <li><a href="checkout.html">Фінансові звіти</a></li>
+                                                <li>
+													<a href="{% url 'finance' %}">Фінансові звіти</a>
+												</li>
                                             </ul>
                                         </li>
-                                        <li class="drop"><a href="blog-grid.html">Статті</a></li>
+                                        <li
+												class="drop"><a href="{% url 'article_list' %}">
+											Статті</a></li>
                                         <li><a href="contact.html">Контакти</a></li>
                                     </ul>
                                 </nav>

@@ -49,7 +49,10 @@
 									</ul>
 								</div>
 								<div class="event__inner">
-									<p><a href="event-details.html">{{ event.title }}...</a></p>
+									<p><a href="{% url 'event_details' event.id %}">
+										 {{ event.title }}...
+									   </a>
+									</p>
 								</div>
 								<ul class="event__btn">
 									{% if event.is_active %}

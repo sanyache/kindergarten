@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from datetime import datetime
 from django.utils import timezone
 from django.views.generic import ListView, DetailView
 from .models import *
+from article.models import Article, Quote
 from .utils import paginate
 # Create your views here.
 
@@ -11,7 +11,13 @@ def index(request):
 
     events = Event.objects.all().order_by('-scheduled')[:3]
     galleries = Gallery.objects.all().order_by('-created')[:6]
-    return render(request, 'index.html', {'events': events, 'galleries': galleries})
+    articles = Article.objects.filter(is_approve=True).exclude(
+                                      category__category='Фінансова звітність').order_by('-created')[:3]
+    quotes = Quote.objects.all()
+    return render(request, 'index.html', {'events': events,
+                                          'galleries': galleries,
+                                          'articles': articles,
+                                          'quotes': quotes})
 
 
 class EventList(ListView):
@@ -68,8 +74,3 @@ def image_gallery(request, pk):
     context = paginate(photos, 4, request, {}, var_name='photos')
     context['gallery'] = gallery
     return render(request, 'gallery_detail.html', context)
-    # def get_context_data(self, *, object_list=None, **kwargs):
-    #     context = super(Gallery, self).get_context_data( object_list=None, **kwargs)
-    #     queryset = self.get_queryset()
-    #     context = paginate(queryset, 4, self.request, context, var_name='gallery')
-    #     return context
