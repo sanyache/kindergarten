@@ -87,5 +87,16 @@ class Quote(models.Model):
         verbose_name_plural = 'Цитати'
 
 
+class Notice(News):
+    """
+    model for notice, is_flash -show in modal
+    """
+    title = models.CharField(max_length=125, verbose_name='заголовок')
+    is_flash = models.BooleanField(default=False, verbose_name='блискавка')
+
+    class Meta:
+        verbose_name = 'Оголошення'
+        verbose_name_plural = 'Оголошення'
+
 
 

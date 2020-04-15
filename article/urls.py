@@ -5,4 +5,5 @@ urlpatterns = [
     path('article_list', ArticleList.as_view(), name='article_list'),
     path('article_detail/<int:pk>', ArticleDetail.as_view(), name='article_detail'),
     path('finance', ArticleFinanceList.as_view(), name='finance'),
+    path('notice_list', NoticeList.as_view(), name='notice_list'),
 ]

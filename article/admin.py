@@ -55,7 +55,16 @@ class QuoteAdmin(admin.ModelAdmin):
     model = Quote
 
 
+class NoticeAdmin(admin.ModelAdmin):
+
+    model = Notice
+    list_display = ('title', 'created', 'is_flash')
+    list_filter = ('is_flash', 'created')
+    ordering = ('created', )
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Reply, ReplyAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Quote, QuoteAdmin)
+admin.site.register(Notice, NoticeAdmin)

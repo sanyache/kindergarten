@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views.generic import ListView, DetailView
 from .models import *
-from article.models import Article, Quote
+from article.models import Article, Quote, Notice
 from .utils import paginate
 # Create your views here.
 
@@ -14,10 +14,12 @@ def index(request):
     articles = Article.objects.filter(is_approve=True).exclude(
                                       category__category='Фінансова звітність').order_by('-created')[:3]
     quotes = Quote.objects.all()
+    notice = Notice.objects.filter(is_flash=True).order_by('-created').first()
     return render(request, 'index.html', {'events': events,
                                           'galleries': galleries,
                                           'articles': articles,
-                                          'quotes': quotes})
+                                          'quotes': quotes,
+                                          'notice': notice})
 
 
 class EventList(ListView):

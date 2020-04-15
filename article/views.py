@@ -38,3 +38,13 @@ class ArticleFinanceList(ListView):
     queryset = Article.objects.filter(category__category='Фінансова звітність')
     template_name = 'blog-grid.html'
     context_object_name = 'articles'
+
+
+class NoticeList(ListView):
+    """
+    class for rendering notice list
+    """
+    model = Notice
+    queryset = Notice.objects.all().order_by('-created')
+    template_name = 'notice_list.html'
+    context_object_name = 'notices'

@@ -451,7 +451,7 @@ html {
 
 body {
   overflow-x: hidden;
-  font-size: 14px;
+  font-size: 19px;
   line-height: 25px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1740,7 +1740,7 @@ Elements Styles
 
 .section__title p {
   color: #666666;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 300;
   line-height: 25px;
   padding: 0 22%;
@@ -2900,7 +2900,7 @@ Blocks Styles
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 700;
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease 0s;
@@ -2954,7 +2954,7 @@ Blocks Styles
   }
 
   .mainmenu li.drop > ul.dropdown__menu a {
-    font-size: 14px;
+    font-size: 19px;
     font-weight: 400;
     line-height: 32px;
     padding: 6px 20px 6px 8px;
