@@ -24,7 +24,7 @@
 								<ul class="top__address d-flex justify-content-start align-items-center flex-wrap flex-lg-nowrap flex-md-nowrap">
 									<li><i class="fa fa-envelope"></i><a href="#">junior@mail.com</a></li>
 									<li><i class="fa fa-phone"></i><span>Тел :</span><a
-											href="#">+380962733127</a></li>
+											href="#">+380731475570</a></li>
 								</ul>
 							</div>
 						</div>
@@ -75,7 +75,7 @@
                                             <ul class="dropdown__menu">
                                                 <li><a href="{% url 'about_us' %}">Про нас</a></li>
                                                 <li><a href="{% url 'gallery_list' %}">Галерея</a></li>
-                                                <li><a href="wishlist.html">Електронна черга</a></li>
+                                                <li><a href="{% url 'line' %}">Електронна черга</a></li>
                                                 <li>
 													<a href="{% url 'finance' %}">Фінансові звіти</a>
 												</li>
@@ -85,7 +85,7 @@
 												class="drop"><a href="{% url 'article_list' %}">
 											Статті</a></li>
 										<li><a href="{% url 'notice_list' %}">Оголошення</a></li>
-                                        <li><a href="contact.html">Контакти</a></li>
+                                        <li><a href="{% url 'contact' %}">Контакти</a></li>
                                     </ul>
                                 </nav>
 							</div>

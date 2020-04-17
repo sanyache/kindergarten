@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'accounts',
     'staff',
     'event',
-    'article'
+    'article',
+    'line'
 ]
 
 MIDDLEWARE = [
@@ -145,7 +146,7 @@ ADMIN_EMAIL = 'sanyache75@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'sanyache75@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'passat2015'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 

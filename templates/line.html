@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">Електронна черга</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="{% url 'index' %}">Головна</a>
+                                  <span class="brd-separetor">
+									  <img src="{% static 'images/icons/brad.png' %}"
+										   alt="separator images">
+								  </span>
+                                  <span class="breadcrumb-item active">Електронна черга</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <div class="col-9 mx-auto mb-4">
+            <h2 align="center">Електронна черга до закладу дошкільної освіти "Світлячок"</h2>
+        </div>
+        <div class="col-9 mx-auto">
+            <h4 align="center">Якщо бажаєте подати заявку до вступу
+                <a href="{% url 'create_inline' %}" style="color:blue;">перейдіть за
+                    посиланням</a></h4>
+        </div>
+        <div class="row">
+            <div class="col-6 mx-auto mt-4 mb-4">
+                <form class="form-inline" method="get" action="">
+                  <label for="year" class="ml-2"></label>
+                  <input type="number"
+                         class="form-control mr-2"
+                         placeholder="Вкажіть рік пошуку"
+                         name="wish_year"
+                         id="year">
+                  <label for="last-name"></label>
+                  <input type="text"
+                         class="form-control mr-2 ml-2"
+                         placeholder="Прізвище"
+                         name="last_name"
+                         id="last-name">
+                  <label for="group-year"></label>
+                  <select name="group_age" id="group-year" class="mr-2 ml-2">
+                      <option value="">Вікова група</option>
+                      <option value="1">Молодша</option>
+                      <option value="2">Середня</option>
+                      <option value="3">Старша</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary mr-2">Фільтр</button>
+                </form>
+            </div>
+            <div class="col-3 form-inline">
+                <a  href="{% url 'line' %}" style="color:blue;">Скинути фільтри</a>
+            </div>
+        </div>
+        <div class="col-9 mx-auto">
+            <table class="table pages">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">№</th>
+              <th scope="col">Прізвище</th>
+              <th scope="col">Ім'я</th>
+              <th scope="col">Рік вступу</th>
+              <th scope="col">Вікова група</th>
+              <th scope="col">Пільга</th>
+            </tr>
+          </thead>
+          <tbody class="items">
+            {% for line in lines %}
+            <tr>
+              <th scope="row">{{ forloop.counter0|add:lines.start_index }}</th>
+              <td>{{ line.child_last_name }}</td>
+              <td>{{ line.child_first_name }}</td>
+              <td>{{ line.wish_year }}</td>
+              <td>{{ line.get_group_age_display }}</td>
+              <td>{{  line.get_privilege_display}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+        <!-- Start Load More -->
+        {% if lines.has_next %}
+        <div class="text-center ">
+            <a class="btn btn-secondary mt-4 load-more"
+               href="?page={{ create_inline.next_page_number }}"
+               data-pages={{paginator.num_pages}}
+               style="color: white"	>Завантажити<br>ще </a>
+        </div>
+        {% endif %}
+        <!-- End Load More -->
+{% endblock content %}

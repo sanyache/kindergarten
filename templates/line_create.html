@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Start Bradcaump area -->
+        <div class="ht__bradcaump__area">
+            <div class="ht__bradcaump__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bradcaump__inner text-center">
+                                <h2 class="bradcaump-title">{{ article.title }}</h2>
+                                <nav class="bradcaump-inner">
+                                  <a class="breadcrumb-item" href="{% url 'index' %}">Головна</a>
+                                  <span class="brd-separetor">
+									  <img src="{% static 'images/icons/brad.png' %}"
+										   alt="separator images">
+								  </span>
+                                  <span class="breadcrumb-item active">Стаття</span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Bradcaump area -->
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+              <h2>Для подання заяви до вступу заповніть всі поля форми</h2>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <h3>Ваша заява до вступу після валідації з'явиться в розділі</h3>
+                <a href="{% url 'line' %}"
+                   class="ml-4 mt-1"
+                   style="color:blue;">Електронна черга
+                </a>
+            </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <small>Відправляючи форму я даю згоду на обробку персональних даних
+                              моїх і дитини для здійснення необхідної діяльності у сфері
+                              освіти
+                </small>
+            </div>
+           <table class="table table-striped mt-4">
+              <form class="well form-horizontal" method="post">
+                  {% csrf_token %}
+                  <tbody>
+                     <tr>
+                        <td colspan="1">
+                          <fieldset>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Ім'я дитини</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group"><span class="input-group-addon">
+                                       <i class="glyphicon glyphicon-user"></i>
+                                       </span><input  name="child_first_name"
+                                                     placeholder="" class="form-control"
+                                                     required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">По батькові</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group"><span class="input-group-addon">
+                                       <i class="glyphicon glyphicon-user"></i>
+                                       </span><input name="child_middle_name"
+                                                     placeholder="" class="form-control"
+                                                     required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Прізвище дитини</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group"><span class="input-group-addon">
+                                       <i class="glyphicon glyphicon-user"></i>
+                                       </span><input name="child_last_name"
+                                                     placeholder="" class="form-control"
+                                                     required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">День народження</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                       <input name="child_birthday" placeholder="дд.мм.рррр"
+                                              class="form-control" required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Свідоцтво про народження</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                       <input name="birth_certificate" placeholder="I-CC-123456"
+                                              class="form-control" required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Ким видане</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                       <input name="certificate_issued"
+                                              placeholder="Вкажіть державний огрган видачі документу"
+                                              class="form-control" required="true" value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Адреса проживання</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                       <textarea class=" form-control" rows="5" required="true"
+                                                 name="address">
+                                       </textarea>
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Рік зарахування</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon">
+                                         <i class="glyphicon glyphicon-home"></i>
+                                       </span>
+                                       {{ form.wish_year }}
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Вікова група</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon">
+                                         <i class="glyphicon glyphicon-home"></i>
+                                       </span>
+                                       {{ form.group_age }}
+                                   </div>
+                                </div>
+                             </div>
+                          </fieldset>
+
+                        </td>
+
+                        <td colspan="1">
+                          <fieldset>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Ім'я батька</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i>
+                                       </span>
+                                       <input name="parent_first_name" placeholder="" class="form-control" required="true" value="" type="text"></div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">По батькові</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i>
+                                       </span>
+                                       <input name="parent_middle_name" placeholder=""
+                                              class="form-control" required="true" value="" type="text"></div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Прізвище батька</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i>
+                                       </span>
+                                       <input name="parent_last_name" placeholder=""
+                                              class="form-control" required="true" value="" type="text"></div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Email</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i>
+                                       </span>
+                                       <input name="email" placeholder="Email"
+                                              class="form-control" required="true" value=""
+                                              type="email"></div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Телефон</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i>
+                                       </span>
+                                       <input name="phone"
+                                              pattern="\d{2}[\(]\d{3}[\)]\d{7}"
+                                              placeholder="тел у форматі 38(000)1234567"
+                                              class="form-control" required="true"
+                                              value="" type="text">
+                                   </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-md-4 control-label">Пільга</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i>
+                                       </span>
+                                       {{ form.privilege }}
+                                   </div>
+                                </div>
+                             </div>
+                          </fieldset>
+
+                          <button type="submit" class="btn btn-primary btn-block mt-4">Відправити
+                          </button>
+
+                        </td>
+                     </tr>
+                  </tbody>
+             </form>
+           </table>
+    </div>
+
+{% endblock %}
