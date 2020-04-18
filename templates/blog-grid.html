@@ -17,6 +17,15 @@
 										   alt="separator images">
 								  </span>
                                   <span class="breadcrumb-item active">Статті</span>
+							      {% if request.user.is_staff %}
+									<span class="brd-separetor">
+									  <img src="{% static 'images/icons/brad.png' %}"
+										   alt="separator images">
+								    </span>
+                                    <span class="breadcrumb-item">
+									  <a href="{% url 'article_create' %}">Добавити</a>
+									</span>
+								  {% endif %}
                                 </nav>
                             </div>
                         </div>
@@ -49,7 +58,7 @@
 								<div class="blog__hover__inner">
 									<h2><a href="blog-details.html">{{ article.title }}</a></h2>
 									<div class="bl__meta">
-										<p>{{ article.author }}</p>
+										<p>{{ article.author.get_full_name }}</p>
 									</div>
 									<div class="bl__details">
 										<p>{{ article.description }}</p>

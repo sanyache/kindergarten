@@ -36,8 +36,8 @@ class Article(News):
     """
     model that describe post
     """
-    title = models.CharField(max_length=125)
-    description = models.CharField(max_length=250)
+    title = models.CharField(max_length=125, verbose_name='Заголовок')
+    description = models.CharField(max_length=250, verbose_name='Короткий опис')
     image = models.ImageField(upload_to='article/', null=True, blank=True, verbose_name='фото')
     image_avatar = ImageSpecField(source='image',
                                   processors=[Transpose(), SmartResize(370, 215)],
@@ -47,7 +47,8 @@ class Article(News):
                                   processors=[Transpose(), SmartResize(370, 304)],
                                   format='JPEG',
                                   options={'quality': 60})
-    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE,
+                                 verbose_name='Категорія')
     is_approve = models.BooleanField(default=False)
 
     def __str__(self):

@@ -82,17 +82,6 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = 'kindergarten.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -141,6 +130,9 @@ ACCOUNT_LOGOUT_ON_GET = True
 #ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = '/accounts/login/'
+ACCOUNT_FORMS = {
+    'signup': 'accounts.forms.CustomSignupForm',
+}
 
 ADMIN_EMAIL = 'sanyache75@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -273,3 +265,9 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+

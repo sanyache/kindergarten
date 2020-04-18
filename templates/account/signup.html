@@ -6,18 +6,30 @@
 
 {% block content %}
 
-<div class="container col-4">
+<div class="container col-4 mt-4">
     <form class="form-signin" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
       <div class="text-center mb-4">
 
-        <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
+        <h1 class="h3 mb-3 font-weight-normal">Реєстрація на сайті</h1>
+        <p></p>
       </div>
       <div class="form-label-group">
         <label for="username">username</label>
         <input type="text" id="username" class="form-control" placeholder="Username"
                name="username"
+               required>
+      </div>
+      <div class="form-label-group">
+        <label for="username">Ім'я</label>
+        <input type="text" id="firstname" class="form-control" placeholder="Ім'я"
+               name="first_name"
+               required>
+      </div>
+      <div class="form-label-group">
+        <label for="username">Прізвище</label>
+        <input type="text" id="lastname" class="form-control" placeholder="прізвище"
+               name="last_name"
                required>
       </div>
       <div class="form-label-group">
@@ -28,25 +40,30 @@
       </div>
 
       <div class="form-label-group">
-        <label for="inputPassword">Password</label>
+        <label for="inputPassword">Пароль</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                name="password1"
                required>
       </div>
 
       <div class="form-label-group">
-        <label for="inputPassword">confirm Password</label>
+        <label for="inputPassword">Підтвердити пароль</label>
         <input type="password" id="confirmPassword" class="form-control"
                placeholder="confirmPassword" name ="password2" required>
       </div>
 
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> Запам'ятати
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Відправити</button>
+      {{ form.errors }}
+      {% for hidden_field in form.hidden_fields %}
+        {{ hidden_field.errors }}
+        {{ hidden_field }}
+      {% endfor %}
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
     </form>
 </div>
 {% endblock %}

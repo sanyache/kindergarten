@@ -1,6 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView, CreateView
 from .models import *
+from .forms import ArticleCreateForm
 from event.utils import paginate
 # Create your views here.
 
@@ -38,6 +41,22 @@ class ArticleFinanceList(ListView):
     queryset = Article.objects.filter(category__category='Фінансова звітність')
     template_name = 'blog-grid.html'
     context_object_name = 'articles'
+
+
+class ArticleCreate(CreateView):
+    """
+    class for creating article
+    """
+    model = Article
+    form_class = ArticleCreateForm
+    template_name = 'blog_create.html'
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class NoticeList(ListView):

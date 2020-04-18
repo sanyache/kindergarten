@@ -213,7 +213,8 @@
 								</a>
 							</div>
 							<div class="blog__inner" style="height:400px;">
-								<span>{{ article.author }}</span>
+								<span>{{ article.author.get_full_name }}
+								</span>
 								<h4><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h4>
 								<p >{{ article.description }}</p>
 								<!--<ul class="blog__meta d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">-->
