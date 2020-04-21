@@ -27,12 +27,24 @@
 	<!-- Modernizer js -->
 	<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
 </head>
-{% include 'includes/header.html' %}
+<body>
+	<!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
 
-{% block content %}{% endblock content %}
+	<!-- Add your site or application content here -->
 
-{% include 'includes/footer.html'%}
+	<!-- <div class="fakeloader"></div> -->
 
+	<!-- Main wrapper -->
+	<div class="wrapper" id="wrapper">
+		{% include 'includes/header.html' %}
+
+		{% block content %}{% endblock content %}
+
+		{% include 'includes/footer.html'%}
+
+	</div><!-- //Main wrapper -->
 <!-- JS Files -->
 	<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
 	<script src="{% static 'js/popper.min.js' %}"></script>
