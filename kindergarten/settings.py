@@ -19,13 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!5&5s_uy0nmw7uc2e3^c%u%zay0#_oxo$!h!b7_lgri=%h)@b('
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,19 +76,6 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = 'kindergarten.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kids',
-        'USER': 'kids_user',
-        'PASSWORD': 'qwerty',
-        'HOST': 'localhost',
-        'PORT': '',
-        'TEST': {
-            'NAME': 'test_kids',
-        },
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -133,16 +114,6 @@ LOGIN_URL = '/accounts/login/'
 ACCOUNT_FORMS = {
     'signup': 'accounts.forms.CustomSignupForm',
 }
-
-ADMIN_EMAIL = 'sanyache75@gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'sanyache75@gmail.com'
-EMAIL_HOST_PASSWORD = 'passat2015'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Internationalization
@@ -265,6 +236,10 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+try:
+    from .prod_settings import *
+except ImportError:
+    pass
 
 try:
     from .local_settings import *

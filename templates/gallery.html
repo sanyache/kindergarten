@@ -25,12 +25,10 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="gallery__menu">
-                            <button data-filter="*"  class="is-checked">All</button>
+                            <button data-filter="*"  class="is-checked">Всі</button>
 							{% for category in categories %}
                             <button data-filter=".{{ category }}">{{ category.name }}</button>
 							{% endfor %}
-                            <button data-filter=".cat--2">Games</button>
-                            <button data-filter=".cat--3">Event</button>
                       	</div>
 					</div>
 				</div>

@@ -23,7 +23,7 @@
 							<div class="jun__header__top__left">
 								<ul class="top__address d-flex justify-content-start align-items-center flex-wrap flex-lg-nowrap flex-md-nowrap">
 									<li><i class="fa fa-envelope"></i>
-										<a href="#">junior@gmail.com</a></li>
+										<a href="#">switlyachokzdo@gmail.com</a></li>
 									<li><i class="fa fa-phone"></i><span>Тел :</span><a
 											href="#">+380731475570</a></li>
 								</ul>
@@ -35,14 +35,14 @@
 								<ul class="accounting d-flex justify-content-lg-end justify-content-md-end justify-content-start align-items-center">
 									 <li>{{request.user.username}}</li>
  								     <li ><a href="/accounts/logout"><i
-              							class=""></i>Logout</a>
+              							class=""></i>Вийти</a>
 									 </li>
 								</ul>
       							{% else %}
 								<ul class="accounting d-flex justify-content-lg-end justify-content-md-end justify-content-start align-items-center">
-									<li><a class="login-trigger" href="#">Login</a></li>
-									<li><a href="{% provider_login_url 'facebook' method='js_sdk'%}">Login Button image</a></li>
-									<li><a class="accountbox-trigger" href="#">Register</a></li>
+									<li><a class="login-trigger" href="#">Логін</a></li>
+									<!--<li><a href="{% provider_login_url 'facebook' method='js_sdk'%}">Login Button image</a></li>-->
+									<li><a class="accountbox-trigger" href="#">Реєстрація</a></li>
 								</ul>
 								{% endif %}
 							</div>

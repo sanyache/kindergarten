@@ -44,10 +44,10 @@ class Article(News):
                                   format='JPEG',
                                   options={'quality': 60})
     image_grid = ImageSpecField(source='image',
-                                  processors=[Transpose(), SmartResize(370, 304)],
-                                  format='JPEG',
-                                  options={'quality': 60})
-    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.CASCADE,
+                                processors=[Transpose(), SmartResize(370, 304)],
+                                format='JPEG',
+                                options={'quality': 60})
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL,
                                  verbose_name='Категорія')
     is_approve = models.BooleanField(default=False)
 

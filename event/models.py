@@ -29,11 +29,11 @@ class Gallery(models.Model):
                                         format='JPEG',
                                         options={'quality': 60})
     title_image_big = ImageSpecField(source='title_image',
-                                        processors=[Transpose(), SmartResize(1800, 950)],
-                                        format='JPEG',
-                                        options={'quality': 100})
+                                     processors=[Transpose(), SmartResize(1800, 950)],
+                                     format='JPEG',
+                                     options={'quality': 100})
     description = models.CharField(max_length=250, blank=True, verbose_name='опис альбому')
-    category = models.ForeignKey(CategoryGallery, on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey(CategoryGallery, on_delete=models.SET_NULL, blank=True, null=True)
     created = models.DateField(auto_now_add=True, verbose_name='створено')
 
     class Meta:
