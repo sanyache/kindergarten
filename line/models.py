@@ -37,7 +37,7 @@ class PersonInLine(models.Model):
     parent_last_name = models.CharField(max_length=50, verbose_name="Прізвище батька")
     parent_first_name = models.CharField(max_length=30, verbose_name="Ім'я батька")
     parent_middle_name = models.CharField(max_length=30, verbose_name="По-батькові")
-    email = models.EmailField()
+    email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=14)
     privilege = models.PositiveSmallIntegerField(choices=PRIVILEGE_CHOICES, verbose_name='пільга')
     created = models.DateField(auto_now_add=True, verbose_name='створено')
