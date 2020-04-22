@@ -20,7 +20,7 @@ class ArticleList(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticleList, self).get_context_data( object_list=None, **kwargs)
         queryset = self.get_queryset()
-        context = paginate(queryset, 3, self.request, context, var_name='articles')
+        context = paginate(queryset, 12, self.request, context, var_name='articles')
         return context
 
 

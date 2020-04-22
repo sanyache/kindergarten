@@ -38,7 +38,7 @@ class EventList(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(EventList, self).get_context_data( object_list=None, **kwargs)
         queryset = self.get_queryset()
-        context = paginate(queryset, 3, self.request, context, var_name='events')
+        context = paginate(queryset, 12, self.request, context, var_name='events')
         return context
 
 
@@ -73,6 +73,6 @@ def image_gallery(request, pk):
     """
     gallery = get_object_or_404(Gallery, id=pk)
     photos = ImageGallery.objects.filter(gallery=gallery)
-    context = paginate(photos, 4, request, {}, var_name='photos')
+    context = paginate(photos, 12, request, {}, var_name='photos')
     context['gallery'] = gallery
     return render(request, 'gallery_detail.html', context)
