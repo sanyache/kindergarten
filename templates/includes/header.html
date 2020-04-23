@@ -92,8 +92,9 @@
 					<!-- Mobile Menu -->
                     <div class="mobile-menu d-block d-lg-none">
                     	<div class="logo">
-                    		<a	href="index.html"><img src="{% static 'images/logo/junior.png' %}"
-													   alt="logo">
+                    		<a	href="{% url 'index' %}">
+								<img src="{% static 'images/logo/junior.png' %}"
+									 alt="logo" style="max-width:40%">
 							</a>
                     	</div>
                     	<!--<a class="minicart-trigger" href="#">-->
