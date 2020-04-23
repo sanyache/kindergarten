@@ -3014,7 +3014,7 @@ Blocks Styles
   background: #89d700;
   color: #ffffff;
   display: inline-block;
-  font-family: 'Bubblegum Sans', cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 72px;
   font-weight: 400;
   padding: 13px 30px;
@@ -3029,7 +3029,7 @@ Blocks Styles
 .slide .slide__inner .slider__text h2 {
   background: #89d700;
   color: #ffffff;
-  font-family: "Open Sans", sans-serif;;
+  font-family: "Open Sans", sans-serif;
   font-size: 48px;
   padding: 10px 30px;
   text-transform: capitalize;
