@@ -19,7 +19,7 @@ class ArticleList(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticleList, self).get_context_data( object_list=None, **kwargs)
-        queryset = self.get_queryset()
+        queryset = Article.objects.filter(is_approve=True).exclude(category__category='Фінансова звітність')
         context = paginate(queryset, 12, self.request, context, var_name='articles')
         return context
 
