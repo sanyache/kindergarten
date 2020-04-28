@@ -17,11 +17,11 @@ class ArticleList(ListView):
     template_name = 'blog-grid.html'
     context_object_name = 'articles'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(ArticleList, self).get_context_data( object_list=None, **kwargs)
-        queryset = Article.objects.filter(is_approve=True).exclude(category__category='Фінансова звітність')
-        context = paginate(queryset, 12, self.request, context, var_name='articles')
-        return context
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super(ArticleList, self).get_context_data( object_list=None, **kwargs)
+    #     queryset = Article.objects.filter(is_approve=True).exclude(category__category='Фінансова звітність')
+    #     context = paginate(queryset, 12, self.request, context, var_name='articles')
+    #     return context
 
 
 class ArticleDetail(DetailView):
