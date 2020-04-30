@@ -45,7 +45,7 @@
 						<div class="blog__2">
 							<div class="blog__thumb">
 								
-								<a href="blog-details.html">
+								<a href="{% url 'article_detail' article.id %}">
 									{% if article.image %}
 									<img src="{{ article.image_grid.url }}" alt="blog images">
 									{% else %}
