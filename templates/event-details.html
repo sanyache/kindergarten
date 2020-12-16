@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extrameta %}
+    <meta property="og:title" content="{{ event.title }}">
+	<meta property="og:description" content="{{ event.description }}">
+	{% if event.title_image %}
+	<meta property="og:image" content="{{ event.title_image_detail.url }}">
+	{% else %}
+	<meta property="og:image" content="{% static 'images/event/big-img/1.jpg' %}">
+	{% endif %}
+	<meta property="og:url" content="{% url 'event_details' event.id %}">
+	<meta property="og:site_name" content="ЗДО 'Світлячок'">
+{% endblock extrameta %}
 {% block content %}
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area">
@@ -73,11 +84,19 @@
                                 </a>
                                 {% endif %}
                             </div>
+                            <div>
+                                <ul class="dacre__social__link--2 bg--2 d-flex justify-content-end">
+                                    <li class="facebook">
+                                        <a target="_blank"
+                                           href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}">
+                                        <i class="fa fa-facebook"></i></a></li>
+
+                                </ul>
+                            </div>
 						</div>
                     </div>
         		</div>
         	</div>
-
         </section>
         <!-- End Class Details -->
 
@@ -85,155 +104,4 @@
 	</div><!-- //Main wrapper -->
 
 {% endblock content %}
-
-    <!-- Google Map js -->
-   <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"></script>-->
-    <!--<script>-->
-        <!--// When the window has finished loading create our google map below-->
-        <!--google.maps.event.addDomListener(window, 'load', init);-->
- <!---->
-        <!--function init() {-->
-            <!--// Basic options for a simple Google Map-->
-            <!--// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions-->
-            <!--var mapOptions = {-->
-                <!--// How zoomed in you want the map to start at (always required)-->
-                <!--zoom: 12,-->
-
-                <!--scrollwheel: false,-->
-
-                <!--// The latitude and longitude to center the map (always required)-->
-                <!--center: new google.maps.LatLng(23.7286, 90.3854), // New York-->
-
-                <!--// How you would like to style the map. -->
-                <!--// This is where you would paste any style found on Snazzy Maps.-->
-                 <!--styles:-->
-				<!--[-->
-
-    <!--{-->
-        <!--"featureType": "administrative",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "off"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "poi",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "simplified"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "road",-->
-        <!--"elementType": "labels",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "simplified"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "water",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "simplified"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "transit",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "simplified"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "landscape",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "simplified"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "road.highway",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "off"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "road.local",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "on"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "road.highway",-->
-        <!--"elementType": "geometry",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"visibility": "on"-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "water",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"color": "#84afa3"-->
-            <!--},-->
-            <!--{-->
-                <!--"lightness": 52-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"saturation": -17-->
-            <!--},-->
-            <!--{-->
-                <!--"gamma": 0.36-->
-            <!--}-->
-        <!--]-->
-    <!--},-->
-    <!--{-->
-        <!--"featureType": "transit.line",-->
-        <!--"elementType": "geometry",-->
-        <!--"stylers": [-->
-            <!--{-->
-                <!--"color": "#3f518c"-->
-            <!--}-->
-        <!--]-->
-    <!--}-->
-				<!--]-->
-            <!--};-->
-
-            <!--// Get the HTML DOM element that will contain your map -->
-            <!--// We are using a div with id="map" seen below in the <body>-->
-            <!--var mapElement = document.getElementById('evnetmap');-->
-
-            <!--// Create the Google Map using our element and options defined above-->
-            <!--var map = new google.maps.Map(mapElement, mapOptions);-->
-
-            <!--// Let's also add a marker while we're at it-->
-            <!--var marker = new google.maps.Marker({-->
-                <!--position: new google.maps.LatLng(23.7286, 90.3854),-->
-                <!--map: map,-->
-                <!--title: 'Dcare!',-->
-                <!--icon: 'images/icons/map-2.png',-->
-                <!--animation:google.maps.Animation.BOUNCE-->
-
-            <!--});-->
-        <!--}-->
-    <!--</script>-->
-
-
 
