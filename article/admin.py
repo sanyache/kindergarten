@@ -27,15 +27,12 @@ class ReplyInLine(admin.TabularInline):
 class ArticleAdmin(admin.ModelAdmin):
 
     model = Article
-    list_display = ('author', 'get_category', 'title', 'is_approve', 'created')
+    list_display = ('author','title', 'is_approve', 'created')
     list_display_links = ('author', 'title')
-    list_filter = ('author', 'is_approve', 'get_category')
+    list_filter = ('author', 'is_approve')
     list_filter = ('author', 'is_approve', 'category')
     form = ArticleAdminForm
     inlines = [ReplyInLine]
-
-    def get_category(self, obj):
-        return obj.category.category
 
 
 class CategoryAdmin(admin.ModelAdmin):
